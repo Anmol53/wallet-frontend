@@ -34,7 +34,7 @@ const SpendFund = () => {
   };
 
   return (
-    <div>
+    <div className="form">
       <label>Name : </label>
       <input
         type="text"
@@ -51,14 +51,12 @@ const SpendFund = () => {
           );
         })}
       </datalist>
-      <br />
       <label>Amount : </label>
       <input
         type="number"
         value={amount}
         onChange={(e) => setAmount(e.target.value)}
       />
-      <br />
       <button
         type="button"
         onClick={() => {
@@ -67,7 +65,6 @@ const SpendFund = () => {
       >
         Submit
       </button>
-      <br />
       <span>{message}</span>
     </div>
   );

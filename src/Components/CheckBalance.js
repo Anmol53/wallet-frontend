@@ -27,7 +27,7 @@ const CheckBalance = () => {
     }
   };
   return (
-    <div>
+    <div className="form">
       <label>Name : </label>
       <input type="text" list="name" id="name-inp" />
       <datalist id="name">
@@ -48,7 +48,6 @@ const CheckBalance = () => {
       >
         Get Balance
       </button>
-      <br />
       {userId && (
         <>
           <label>Balance : </label>

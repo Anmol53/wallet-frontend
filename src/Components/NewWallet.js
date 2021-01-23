@@ -34,28 +34,25 @@ const NewWallet = (props) => {
   };
 
   return (
-    <div>
+    <div className="form">
       <label>Name : </label>
       <input
         type="text"
         value={name}
         onChange={(e) => setName(e.target.value)}
       />
-      <br />
       <label>Phone : </label>
       <input
         type="text"
         value={phone}
         onChange={(e) => setPhone(e.target.value)}
       />
-      <br />
       <label>Amount : </label>
       <input
         type="number"
         value={amount}
         onChange={(e) => setAmount(e.target.value)}
       />
-      <br />
       <button
         type="button"
         onClick={() => {
@@ -64,7 +61,6 @@ const NewWallet = (props) => {
       >
         Add Wallet
       </button>
-      <br />
       <span>{message}</span>
     </div>
   );

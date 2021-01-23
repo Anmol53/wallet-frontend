@@ -32,7 +32,7 @@ const UserTransactions = () => {
     }
   }, [userId]);
   return (
-    <div>
+    <div className="form">
       <label>Name : </label>
       <input type="text" list="name" id="name-inp" />
       <datalist id="name">
