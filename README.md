@@ -1,3 +1,3 @@
 #Wallet Frontend
 
-> todo host
+> #Todo: host the project
