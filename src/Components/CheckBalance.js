@@ -46,11 +46,15 @@ const CheckBalance = () => {
           checkBalance();
         }}
       >
-        Submit
+        Get Balance
       </button>
       <br />
-      <label>Balance : </label>
-      <span>{balance}</span>
+      {userId && (
+        <>
+          <label>Balance : </label>
+          <span>{balance}</span>
+        </>
+      )}
     </div>
   );
 };

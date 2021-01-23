@@ -10,12 +10,17 @@ import AllTransactions from "./Components/AllTransactions";
 
 function App() {
   const [curr, setCurr] = useState(0);
+
+  const changeComponent = (v) => {
+    setCurr(v);
+  };
+
   const myRoute = () => {
     switch (curr) {
       case 0:
         return <AllWallets />;
       case 1:
-        return <NewWallet />;
+        return <NewWallet changeComponent={changeComponent} />;
       case 2:
         return <CheckBalance />;
       case 3:
@@ -30,6 +35,7 @@ function App() {
         return <span></span>;
     }
   };
+
   return (
     <div className="App">
       <h1 className="header">Personal Wallet UI</h1>

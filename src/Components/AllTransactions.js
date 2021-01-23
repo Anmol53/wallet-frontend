@@ -8,32 +8,47 @@ const AllTransactions = () => {
     fetch(serverURL)
       .then((response) => response.json())
       .then((res) => {
-        console.log(res);
-        // const sortedArr = res.wallets.sort((a, b) => {
-        //   return a.user_id - b.user_id;
-        // });
-        // setTransactions(sortedArr);
+        const sortedArr = res.transactions.sort((a, b) => {
+          const aDate = new Date(a.transaction_Time).valueOf();
+          const bDate = new Date(b.transaction_Time).valueOf();
+          return aDate - bDate;
+        });
+        setTransactions(sortedArr);
       });
   }, []);
   return (
     <div>
       <table>
-        <tr>
-          <th>Name</th>
-          <th>Date</th>
-          <th>Amount</th>
-          <th>Balance (Rs)</th>
-        </tr>
-        {transactions.map((transaction) => {
-          return (
-            <tr key={transaction._id}>
-              <td>{transaction.user_name}</td>
-              <td>{transaction.date}</td>
-              <td>{transaction.amount}</td>
-              <td>{transaction.balance}</td>
-            </tr>
-          );
-        })}
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Date</th>
+            <th>Amount</th>
+            <th>Balance (Rs)</th>
+          </tr>
+        </thead>
+        <tbody>
+          {transactions.map((transaction) => {
+            return (
+              <tr key={transaction._id}>
+                <td>{transaction.user_name}</td>
+                <td>
+                  {new Date(transaction.transaction_Time).toLocaleDateString(
+                    "en-US",
+                    {
+                      month: "short",
+                      day: "numeric",
+                      hour: "numeric",
+                      minute: "numeric",
+                    }
+                  )}
+                </td>
+                <td>{transaction.amount}</td>
+                <td>{transaction.final_balance}</td>
+              </tr>
+            );
+          })}
+        </tbody>
       </table>
     </div>
   );
